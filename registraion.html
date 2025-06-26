@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Register</h1>
+        <!-- Added form tag with action and method -->
+        <form action="/post" method="POST">
+            <input type="text" placeholder="Username" id="name" name="name" required>
+            <input type="email" placeholder="Email" id="email" name="email" required>
+            <input type="password" placeholder="Password" id="password" name="password" required>
+            <input type="password" placeholder="Confirm Password" id="Cpsw" name="Cpsw" required>
+            <button class="btn" type="submit">Sign Up</button>
+        </form>
+    </div>
+    <style>
+        body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f5f2ff;
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    width: 500px;
+    border: 2px solid #8c72d6;
+    background-color: #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 16px;
+    align-items: center;
+    padding: 20px;
+    margin-top: 3%;
+}
+
+.container input {
+    width: 80%;
+    margin-top: 15px;
+    padding: 10px;
+    border: 1px solid #8c72d6;
+    border-radius: 8px;
+    outline: none;
+    transition: border-color 0.3s;
+margin-left: 40px;}
+
+.container input:focus {
+    border-color: #6b52a5;
+    box-shadow: 0 0 17px rgba(175, 23, 51, 0.2);
+}
+
+h1 {
+    color: #6b52a5;
+    margin-bottom: 20px;
+}
+
+button {
+    margin-left: 40%;
+    background-color: #6b52a5;
+    color: #fff;
+    border: none;
+    padding: 12px 20px;
+    margin-top: 20px;
+    font-size: 16px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(107, 82, 165, 0.2);
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+button:hover {
+    cursor: pointer;
+    background-color: #8c72d6;
+    transform: translateY(-2px);
+}
+
+button:active {
+    transform: translateY(1px);
+}
+
+    </style>
+</body>
+</html>

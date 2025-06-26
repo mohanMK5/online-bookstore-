@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart</title>
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="cart.js"></script>
+</head>
+<body>
+    <div class="cart-container">
+        <h2>Cart</h2>
+        <div id="cart-items"></div>
+        <div class="order-summary">
+            <h3>Order Summary</h3>
+            <p id="total-price">$0</p>
+        </div>
+        <div class="terms">
+            <input type="checkbox" id="agree-terms">
+            <label for="agree-terms">By proceeding, I agree to Terms of Service.</label>
+        </div>
+        <button class="checkout-btn">Checkout</button>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const cartContainer = document.getElementById('cart-items');
+            const totalPriceElement = document.getElementById('total-price');
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+            if (cart.length === 0) {
+                cartContainer.innerHTML = '<p>Your cart is empty.</p>';
+            } else {
+                let totalPrice = 0;
+                cart.forEach((item, index) => {
+                    totalPrice += parseFloat(item.price.replace('$', ''));
+
+                    const itemDiv = document.createElement('div');
+                    itemDiv.classList.add('cart-item');
+                    itemDiv.innerHTML = `
+                        <div class="book-details">
+                            <img src="${item.imgSrc}" alt="${item.title} Cover" width="100">
+                            <div>
+                                <h4>${item.title}</h4>
+                                <h5>${item.author}</h5>
+                                <!-- Remove Button -->
+                                <button class="remove-btn" data-index="${index}">Remove</button>
+                            </div>
+                        </div>
+                        <div class="price">
+                            <p>${item.price}</p>
+                        </div>
+                    `;
+                    cartContainer.appendChild(itemDiv);
+                });
+
+                totalPriceElement.textContent = `$${totalPrice.toFixed(2)}`;
+            }
+
+            // Event listener for remove buttons
+            cartContainer.addEventListener('click', function(event) {
+                if (event.target.classList.contains('remove-btn')) {
+                    const index = event.target.getAttribute('data-index');
+                    cart.splice(index, 1); // Remove item from cart array
+                    localStorage.setItem('cart', JSON.stringify(cart)); // Update localStorage
+                    window.location.reload(); // Refresh the page to update the cart display
+                }
+            });
+        });
+        
+
+    // Assuming this script is in your addtocart.html
+   // Assuming you're storing cart items in localStorage, and you have a userId
+const addToCartButton = document.querySelector('.add-to-cart-btn');
+addToCartButton.addEventListener('click', async () => {
+    const book = {
+        title: 'Book Title',
+        author: 'Author Name',
+        price: '$10',
+        imgSrc: 'book-image.jpg',
+    };
+    const userId = '6735820ac6258b20c7dd812d'; // Get this from session or user data
+
+    // Send the book details to the server
+    const response = await fetch('/add-to-cart', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            userId: userId,
+            book: book,
+        }),
+    });
+
+    const data = await response.json();
+    console.log(data.message);
+});
+
+
+
+    </script>
+</body>
+</html>

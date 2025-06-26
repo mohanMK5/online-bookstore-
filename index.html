@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+</head>
+<body>
+  <div class="frontpage">
+    <div class="tit-cont">
+      <div class="logo">
+        <img src="Screenshot_2024-10-23_213323-removebg-preview.png" />
+        <h4>book mart</h4>
+      </div>
+      <div class="tit">
+        <ul>
+          <li><a href="#"><b>Home</b></a></li>
+          <li><a href="#Categories"><b>Categories</b></a></li>
+          <li><a href="#trendings"><b>Best seller</b></a></li>
+          <li><a href="#about-section"><b>About</b></a></li>
+        </ul>
+        <a href="addtocart.html"
+          ><i class="fas fa-shopping-cart" style="font-size: 28px"></i
+        ></a>
+        <a href="registraion.html"
+          ><i class="fas fa-user" style="font-size: 28px"></i
+        ></a>
+      </div>
+    </div>
+    <div class="search-cont">
+      <h1><b>Find your next favourite book here!</b></h1>
+      <h3>Search by title, author or genre</h3>
+      <div class="search-box">
+        <input type="text" id="search-input" placeholder="what are you looking for" />
+        <button type="submit" id="search-button">Search</button>
+      </div>
+    </div>
+    <h1 class="no">.</h1>
+  </div>
+  <section class="categories-section" id="Categories">
+    <h2>Categories</h2>
+    <div class="category-list" id="category-list"></div>
+  </section>
+  <section id="trendings">
+    <div class="book-section">
+      <h2>Best Selling Books Ever</h2>
+      <div class="book-list" id="book-list"></div>
+    </div>
+  </section>
+  <section id="about-section" style="background-color:#e7ddeb; padding: 40px 20px; text-align: center; margin-top: 50px; border-radius: 12px;">
+    <h2>About Book Mart</h2>
+    <p style="max-width: 700px; margin: 20px auto; font-size: 1.1rem; color: #333;">
+      Welcome to Book Mart, your one-stop online bookstore offering a wide range of books across various genres and categories. Whether you're looking for the latest bestsellers, timeless classics, or educational resources, we have something for every reader. Our mission is to make book shopping easy, enjoyable, and accessible to everyone. Dive into our collection and find your next favorite read today!
+    </p>
+  </section>
+  <script src="index.js"></script>
+</body>
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f2f5;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            width: 30%;
+            max-width: 400px;
+            border: 1px solid #ccc;
+            border-radius: 12px;
+            padding: 20px;
+            background-color: white;
+            box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 20px;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        input[type="email"],
+        input[type="password"] {
+            width: 90%;
+            display: block;
+            margin: 15px auto;
+            padding: 10px;
+            border: none;
+            border-bottom: 2px solid #007BFF;
+            outline: none;
+            font-size: 14px;
+            transition: border-color 0.3s;
+        }
+        input[type="email"]:focus,
+        input[type="password"]:focus {
+            border-bottom: 2px solid #0056b3;
+        }
+        .loginButton {
+            display: block;
+            width: 50%;
+            margin: 20px auto;
+            padding: 10px;
+            border: none;
+            border-radius: 12px;
+            background-color: #007BFF;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .loginButton:hover {
+            background-color: white;
+            color: #007BFF;
+            border: 1px solid #007BFF;
+        }
+        h5 {
+            text-align: center;
+            font-size: 14px;
+            color: #007BFF;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        h5:hover {
+            color: black;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Login</h1>
+        <input type="email" placeholder="Username or email" id="email">
+        <input type="password" placeholder="Password" id="password">
+        <h5 onclick="alert('Password reset link sent!')"><i>Forgot password?</i></h5>
+        <button type="button" class="loginButton" onclick="validateForm()">Login</button>
+    </div>
+
+    <script>
+        function validateForm() {
+            const email = document.getElementById('email');
+            const password = document.getElementById('password');
+
+            if (email.value.trim() === '' || password.value.trim() === '') {
+                window.alert("Ensure all fields are filled");
+            } else {
+                // Placeholder for additional logic (e.g., API call, form submission)
+                window.alert("Form submitted successfully!");
+            }
+        }
+    </script>
+</body>
+</html>
